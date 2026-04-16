@@ -257,16 +257,29 @@ body {
   margin: 4.5rem auto 0;
   padding: 0.85rem 0.65rem 1.1rem;
   overflow: visible;
-  background: var(--paper-oval);
-  border: 1px solid rgba(90, 78, 62, 0.38);
+  background: none;
+  border: none;
   border-radius: 50%;
-  box-shadow: var(--shadow-paper);
+  box-shadow: none;
   text-align: center;
   transform: rotate(-0.55deg);
 }
 
-.hero-oval::after {
+.hero-oval::before {
   content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 23.85rem;
+  height: 31.7rem;
+  transform: translate(-50%, -50%);
+  background: url("assets/images/graphic-oval.png") center / 100% 100% no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-oval::after {
+  content: none;
   position: absolute;
   inset: 0.55rem;
   border: 1px dashed rgba(90, 78, 62, 0.3);
@@ -285,7 +298,7 @@ body {
   width: 100%;
   flex: 1 1 auto;
   min-height: 0;
-  padding: 2.55rem 0.4rem 0;
+  padding: 1.75rem 0.4rem 0;
 }
 
 /* Four washi tapes — larger, overlapping oval edge (scrapbook “hold”) */
@@ -405,6 +418,7 @@ body {
   line-height: 1.08;
   letter-spacing: 0.012em;
   color: var(--ink);
+  transform: translateY(-0.32rem);
 }
 
 .hero-oval__title-line {
@@ -445,6 +459,7 @@ body {
   line-height: 1.35;
   word-spacing: 0.13em;
   color: var(--ink-soft);
+  transform: translateY(-0.32rem);
 }
 
 /* Brown leaf backing + blue stitched Start button */
@@ -455,7 +470,7 @@ body {
   place-items: center;
   width: 100%;
   max-width: 17rem;
-  margin: 0.4rem auto 0;
+  margin: 0.1rem auto 0;
   padding: 0.85rem 0 0.45rem;
   min-height: 5.2rem;
 }
