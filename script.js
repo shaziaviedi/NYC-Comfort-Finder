@@ -195,7 +195,15 @@
     const data = results[dominantKey];
     if (!data || !elResultTitle || !elResultDescription || !elResultSuggestions) return;
 
-    elResultTitle.textContent = "Comfort Type: " + data.title;
+    elResultTitle.textContent = "";
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "result-header-strip__label";
+    labelSpan.textContent = "Comfort Type";
+    const valueSpan = document.createElement("span");
+    valueSpan.className = "result-header-strip__value";
+    valueSpan.textContent = data.title;
+    elResultTitle.appendChild(labelSpan);
+    elResultTitle.appendChild(valueSpan);
     elResultDescription.textContent = data.description;
 
     elResultSuggestions.innerHTML = "";
