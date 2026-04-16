@@ -604,7 +604,11 @@ body {
 }
 
 .quiz__wrap.quiz--compact-bottom {
-  min-height: min(82vh, 40rem);
+  min-height: min(78.1vh, 38.2rem);
+}
+
+.quiz__wrap.quiz--compact-bottom .quiz-panel--active {
+  padding-bottom: 3.3rem;
 }
 
 .quiz-panel--active {
@@ -614,7 +618,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-bottom: 6.1rem;
+  padding-bottom: 4.7rem;
 }
 
 .quiz-head {
@@ -747,15 +751,15 @@ body {
 }
 
 .quiz-tape--q-left {
-  top: -0.72rem;
-  left: 0.5rem;
-  transform: rotate(-14deg);
+  top: -0.34rem;
+  left: -0.18rem;
+  transform: rotate(-38deg);
 }
 
 .quiz-tape--q-right {
-  top: -0.7rem;
-  right: 0.75rem;
-  transform: rotate(10deg);
+  top: -0.36rem;
+  right: -0.2rem;
+  transform: rotate(38deg);
   width: 4.75rem;
 }
 
@@ -992,6 +996,39 @@ body {
 
 .quiz__wrap.quiz--polaroid-higher .quiz-polaroid {
   bottom: clamp(3.25rem, 10.3vw, 4.35rem);
+}
+
+/* Per-question polaroid placement refinements (Q1-Q8). */
+.quiz__wrap.quiz--q1 .quiz-polaroid {
+  bottom: clamp(0.65rem, 2.8vw, 1.35rem);
+}
+
+.quiz__wrap.quiz--q2 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
+}
+
+.quiz__wrap.quiz--q3 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
+}
+
+.quiz__wrap.quiz--q4 .quiz-polaroid {
+  bottom: clamp(0.65rem, 2.8vw, 1.35rem);
+}
+
+.quiz__wrap.quiz--q5 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
+}
+
+.quiz__wrap.quiz--q6 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
+}
+
+.quiz__wrap.quiz--q7 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
+}
+
+.quiz__wrap.quiz--q8 .quiz-polaroid {
+  bottom: clamp(0.45rem, 2.2vw, 1.05rem);
 }
 
 .quiz-polaroid__frame {

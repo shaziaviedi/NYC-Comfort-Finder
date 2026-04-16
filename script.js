@@ -5,7 +5,7 @@
       answers: [
         { text: "Put my phone away and sit somewhere quiet", type: "quietReset" },
         { text: "Make or buy a drink or snack I already know I like", type: "familiarRoutine" },
-        { text: "Leave my room and walk without a strict plan", type: "reflectiveOuting" },
+        { text: "Leave my room and walk without having a strict plan", type: "reflectiveOuting" },
         { text: "Text someone and see if they want to hang out or study nearby", type: "lowPressureCompany" }
       ]
     },
@@ -221,21 +221,18 @@
 
     const q = questions[currentIndex];
     if (elQuizWrap) {
-      // Q1 and Q4: reduce bottom whitespace.
-      elQuizWrap.classList.toggle("quiz--compact-bottom", currentIndex === 0 || currentIndex === 3);
+      // Q1, Q4, and Q8: reduce bottom whitespace on the rectangular paper.
+      elQuizWrap.classList.toggle(
+        "quiz--compact-bottom",
+        currentIndex === 0 || currentIndex === 3 || currentIndex === 7
+      );
       // Q1 and Q4: give first answer more white space.
       elQuizWrap.classList.toggle("quiz--first-answer-roomy", currentIndex === 0 || currentIndex === 3);
-      // Q1 and Q4: move polaroid higher to match last-answer top edge.
-      elQuizWrap.classList.toggle("quiz--polaroid-higher", currentIndex === 0 || currentIndex === 3);
-      // Q2, Q3, Q5-Q7: move polaroid lower; Q8 stays as baseline reference.
-      elQuizWrap.classList.toggle(
-        "quiz--polaroid-lower",
-        currentIndex === 1 ||
-          currentIndex === 2 ||
-          currentIndex === 4 ||
-          currentIndex === 5 ||
-          currentIndex === 6
-      );
+      // Per-question class used for precise polaroid vertical placement.
+      for (let i = 1; i <= questions.length; i += 1) {
+        elQuizWrap.classList.remove("quiz--q" + i);
+      }
+      elQuizWrap.classList.add("quiz--q" + (currentIndex + 1));
     }
     elProgressInner.textContent =
       "Question " + (currentIndex + 1) + " of " + questions.length;
