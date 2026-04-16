@@ -511,7 +511,7 @@ body {
   text-shadow: 0 1px 0 rgba(27, 57, 68, 0.4);
   background: linear-gradient(180deg, #8ea79c 0%, #748f83 50%, #607a6f 100%);
   border-radius: 0.42rem;
-  border: 2px solid rgba(255, 255, 255, 0.9);
+  border: 2px solid rgb(102, 96, 72);
   box-shadow: 0 3px 0 rgba(35, 90, 115, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
   transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
@@ -521,7 +521,7 @@ body {
   position: absolute;
   inset: 3px;
   border-radius: 0.32rem;
-  border: 1px dashed rgba(255, 255, 255, 0.38);
+  border: 2px dashed rgba(255, 255, 255, 0.38);
   pointer-events: none;
 }
 
