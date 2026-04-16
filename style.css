@@ -511,13 +511,18 @@ body {
   text-shadow: 0 1px 0 rgba(27, 57, 68, 0.4);
   background: linear-gradient(180deg, #8ea79c 0%, #748f83 50%, #607a6f 100%);
   border-radius: 0.42rem;
-  border: 2px dashed rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 3px 0 rgba(35, 90, 115, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
   transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn--start::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 0.32rem;
+  border: 1px dashed rgba(255, 255, 255, 0.38);
+  pointer-events: none;
 }
 
 .btn--start:hover {
@@ -632,21 +637,11 @@ body {
 }
 
 .quiz-compass {
-  position: absolute;
-  left: 0.15rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(-6deg);
-  flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(58, 54, 48, 0.12));
+  display: none;
 }
 
 .quiz-head-flowers {
-  position: absolute;
-  right: -0.85rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(4deg);
-  flex-shrink: 0;
-  opacity: 0.95;
+  display: none;
 }
 
 .quiz-progress-strip {
@@ -1326,7 +1321,7 @@ body {
   border: 1px solid rgba(40, 32, 26, 0.5);
   border-radius: 0.35rem 0.35rem 0.15rem 0.35rem;
   box-shadow: 0 3px 0 rgba(40, 32, 26, 0.35), 0 6px 12px rgba(58, 54, 48, 0.12);
-  transform: translateY(-0.14rem) rotate(-2deg);
+  transform: translateY(0.08rem) rotate(-2deg);
 }
 
 .btn--retake::before {
