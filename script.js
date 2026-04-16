@@ -3,7 +3,7 @@
     {
       question: "When your week starts feeling heavy, what do you usually do first?",
       answers: [
-        { text: "Put my phone away and sit somewhere quiet for a while", type: "quietReset" },
+        { text: "Put my phone away and sit somewhere quiet", type: "quietReset" },
         { text: "Make or buy a drink or snack I already know I like", type: "familiarRoutine" },
         { text: "Leave my room and walk without a strict plan", type: "reflectiveOuting" },
         { text: "Text someone and see if they want to hang out or study nearby", type: "lowPressureCompany" }
@@ -30,10 +30,10 @@
     {
       question: "Which New York moment sounds the most appealing right now?",
       answers: [
-        { text: "Getting off the subway and stepping into somewhere unexpectedly calm", type: "quietReset" },
+        { text: "Stepping into somewhere unexpectedly calm", type: "quietReset" },
         { text: "Finding a place that serves something I already know I will like", type: "familiarRoutine" },
         { text: "Taking the long way somewhere just because the walk feels nice", type: "reflectiveOuting" },
-        { text: "Running into someone I know and deciding to stay together a little longer", type: "lowPressureCompany" }
+        { text: "Running into someone I know and stay together a little longer", type: "lowPressureCompany" }
       ]
     },
     {
@@ -78,7 +78,7 @@
     quietReset: {
       title: "Quiet Reset",
       description:
-        "You seem to recharge best by lowering the volume of the city for a little while. This comfort type is less about doing more and more about stepping into a space that feels calmer, quieter, and less demanding. When everything feels overstimulating, you may benefit most from stillness, soft focus, and places where you can be alone without feeling isolated.",
+        "You recharge best by lowering the volume of the city for a little while. This comfort type is about stepping into spaces that feel calmer, quieter, and less demanding. When everything feels overstimulating, stillness and soft focus may help you feel more grounded.",
       suggestions: [
         "Spend 20 minutes at Jefferson Market Garden in Greenwich Village",
         "Sit by yourself at Greenacre Park and just listen to the waterfall",
@@ -90,19 +90,19 @@
     familiarRoutine: {
       title: "Familiar Routine",
       description:
-        "You may feel better through repetition, familiarity, and small rituals that make the day feel steady again. This comfort type is about returning to something reliable, whether that is a favorite food, a bookstore you can browse slowly, or a place you can come back to often. When the city feels too big or emotionally distant, routine can make it feel more manageable.",
+        "You may feel better through familiarity and small rituals that make the day feel steadier. This comfort type is about returning to something reliable, like a favorite food or place. When the city feels too big or distant, routine can help it feel more manageable.",
       suggestions: [
         "Pick a regular seat at Bryant Park’s Reading Room and stay with a book or magazine",
         "Browse Kinokuniya across from Bryant Park for books, stationery, or comfort purchases",
         "Get an Indonesian bowl from Jakarta Munch at Urban Hawker",
         "Visit Indo Java Groceries in Elmhurst for Indonesian groceries and familiar flavors",
-        "Settle into Housing Works Bookstore Cafe with the same drink or snack you always order"
+        "Settle into Housing Works Bookstore Cafe with the same drink or snack you love"
       ]
     },
     reflectiveOuting: {
       title: "Reflective Outing",
       description:
-        "You seem to reset best through movement, light exploration, and a gentle change of scenery. This comfort type does not necessarily mean adventure. It is more about giving yourself room to wander, notice things, and feel your thoughts settle while you move through the city at your own pace. A calm solo outing may help you feel clearer and more grounded.",
+        "You seem to reset best through movement, light exploration, and a gentle change of scenery. This comfort type is less about adventure and more about giving yourself room to wander and think. A calm solo outing may help you feel clearer and more grounded.",
       suggestions: [
         "Browse on your own at McNally Jackson and let yourself linger without a plan",
         "Take a slow walk through the Conservatory Garden in Central Park",
@@ -114,7 +114,7 @@
     lowPressureCompany: {
       title: "Low-Pressure Company",
       description:
-        "You may not need a big social plan. You may just need gentle connection. This comfort type is about being around people in a way that feels easy, unforced, and emotionally light. Instead of intense socializing, you may feel better with casual shared time, familiar company, or places where people are around but nothing is required from you.",
+        "You may not need a big social plan, just gentle connection. This comfort type is about being around people in a way that feels easy, unforced, and emotionally light. Instead of intense socializing, casual shared time may help you feel more supported.",
       suggestions: [
         "Meet a friend at Bryant Park and borrow a board game or try pétanque",
         "Catch up quietly at Housing Works Bookstore Cafe in SoHo",
@@ -145,6 +145,7 @@
   const elQuestionText = document.getElementById("quiz-question-text");
   const elAnswers = document.getElementById("quiz-answers");
   const panelActive = document.getElementById("quiz-panel-active");
+  const elQuizWrap = document.querySelector(".quiz__wrap");
   const elResultTitle = document.getElementById("result-title");
   const elResultDescription = document.getElementById("result-description");
   const elResultSuggestions = document.getElementById("result-suggestions");
@@ -219,6 +220,23 @@
     panelActive.hidden = false;
 
     const q = questions[currentIndex];
+    if (elQuizWrap) {
+      // Q1 and Q4: reduce bottom whitespace.
+      elQuizWrap.classList.toggle("quiz--compact-bottom", currentIndex === 0 || currentIndex === 3);
+      // Q1 and Q4: give first answer more white space.
+      elQuizWrap.classList.toggle("quiz--first-answer-roomy", currentIndex === 0 || currentIndex === 3);
+      // Q1 and Q4: move polaroid higher to match last-answer top edge.
+      elQuizWrap.classList.toggle("quiz--polaroid-higher", currentIndex === 0 || currentIndex === 3);
+      // Q2, Q3, Q5-Q7: move polaroid lower; Q8 stays as baseline reference.
+      elQuizWrap.classList.toggle(
+        "quiz--polaroid-lower",
+        currentIndex === 1 ||
+          currentIndex === 2 ||
+          currentIndex === 4 ||
+          currentIndex === 5 ||
+          currentIndex === 6
+      );
+    }
     elProgressInner.textContent =
       "Question " + (currentIndex + 1) + " of " + questions.length;
     elQuestionText.textContent = q.question;
