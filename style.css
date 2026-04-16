@@ -744,7 +744,7 @@ body {
 .quiz-tape--q-left {
   top: -0.08rem;
   left: -0.86rem;
-  transform: rotate(-51deg);
+  transform: rotate(-25deg);
 }
 
 .quiz__wrap.quiz--q2::before,
@@ -764,7 +764,7 @@ body {
 
 .quiz-tape--q-right {
   top: -0.1rem;
-  right: -0.48rem;
+  right: -0.9rem;
   transform: rotate(38deg);
   width: 4.75rem;
 }
