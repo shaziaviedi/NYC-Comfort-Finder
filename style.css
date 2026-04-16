@@ -97,6 +97,7 @@ body {
   justify-content: center;
   align-items: center;
   isolation: isolate;
+  overflow: hidden;
   padding: clamp(0.55rem, 2vw, 1rem) clamp(0.45rem, 2vw, 0.75rem)
     clamp(0.65rem, 2vw, 1.1rem);
 }
@@ -153,6 +154,22 @@ body {
   display: block;
 }
 
+.landing__skyline {
+  position: absolute;
+  left: 50%;
+  top: 0.5rem;
+  width: min(108%, 23.25rem);
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing__skyline img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Frame-bound scrapbook accents */
 
 .landing__decor {
@@ -182,44 +199,13 @@ body {
 }
 
 .landing__decor--tape-stars {
-  bottom: 0.5rem;
-  right: 0.2rem;
-  width: 4.75rem;
-  height: 1.25rem;
-  transform: rotate(5deg);
-  background: #6b4e3a;
-  background-image: radial-gradient(
-      circle at 15% 50%,
-      rgba(255, 255, 255, 0.85) 0,
-      rgba(255, 255, 255, 0.85) 1.5px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 38% 50%,
-      rgba(255, 255, 255, 0.75) 0,
-      rgba(255, 255, 255, 0.75) 1.5px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 58% 50%,
-      rgba(255, 255, 255, 0.85) 0,
-      rgba(255, 255, 255, 0.85) 1.5px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 78% 50%,
-      rgba(255, 255, 255, 0.7) 0,
-      rgba(255, 255, 255, 0.7) 1.5px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 94% 50%,
-      rgba(255, 255, 255, 0.8) 0,
-      rgba(255, 255, 255, 0.8) 1.5px,
-      transparent 2px
-    );
-  box-shadow: var(--shadow-paper);
-  opacity: 0.92;
+  bottom: -10.25rem;
+  right: -7rem;
+  width: 25rem;
+  aspect-ratio: 1.2 / 1;
+  transform: rotate(-4deg);
+  background: url("assets/images/graphic-map.png") center / contain no-repeat;
+  opacity: 0.96;
 }
 
 .landing__collage {
@@ -463,31 +449,18 @@ body {
 }
 
 .leaf-cta::before {
-  content: "";
+  content: none;
+}
+
+.leaf-cta__graphic {
   position: absolute;
+  display: block;
   left: 50%;
-  bottom: 0.1rem;
-  width: min(114%, 15.9rem);
-  height: 4.15rem;
+  bottom: -3.25rem;
+  width: min(138%, 20rem);
+  max-width: none;
+  height: auto;
   transform: translateX(-50%);
-  background: linear-gradient(165deg, #8b6547 0%, #6d4f38 45%, #593f2f 100%);
-  clip-path: polygon(
-    50% 4%,
-    66% 8%,
-    81% 20%,
-    91% 40%,
-    90% 60%,
-    80% 78%,
-    64% 90%,
-    50% 95%,
-    36% 90%,
-    20% 78%,
-    10% 60%,
-    9% 40%,
-    19% 20%,
-    34% 8%
-  );
-  box-shadow: 0 4px 10px rgba(58, 54, 48, 0.16);
   pointer-events: none;
   z-index: 0;
 }

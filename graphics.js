@@ -3,6 +3,7 @@
 
   var mount = document.getElementById("landing-p5-layer");
   var frame = document.querySelector(".landing__frame");
+  var showP5Skyline = false;
   if (!mount || !frame) return;
 
   function relRect(childRect, parentRect) {
@@ -43,55 +44,57 @@
 
     p.clear();
 
-    var skyLeft = oval.x - oval.w * 0.1;
-    var skyTop = oval.y - oval.h * 0.22;
-    var skyW = oval.w * 1.2;
-    var skyH = oval.h * 0.37;
+    if (showP5Skyline) {
+      var skyLeft = oval.x - oval.w * 0.1;
+      var skyTop = oval.y - oval.h * 0.22;
+      var skyW = oval.w * 1.2;
+      var skyH = oval.h * 0.37;
 
-    p.push();
-    p.noStroke();
-    p.fill(109, 138, 92, 220);
-    p.beginShape();
-    p.vertex(skyLeft, skyTop + skyH);
-    p.vertex(skyLeft, skyTop + skyH * 0.52);
-    for (var i = 0; i <= 12; i++) {
-      var t = i / 12;
-      var px = skyLeft + skyW * t;
-      var py = skyTop + skyH * (0.52 - 0.16 * Math.sin(i * 1.2) - 0.04 * (i % 2));
-      p.vertex(px, py);
-    }
-    p.vertex(skyLeft + skyW, skyTop + skyH);
-    p.endShape(p.CLOSE);
+      p.push();
+      p.noStroke();
+      p.fill(109, 138, 92, 220);
+      p.beginShape();
+      p.vertex(skyLeft, skyTop + skyH);
+      p.vertex(skyLeft, skyTop + skyH * 0.52);
+      for (var i = 0; i <= 12; i++) {
+        var t = i / 12;
+        var px = skyLeft + skyW * t;
+        var py = skyTop + skyH * (0.52 - 0.16 * Math.sin(i * 1.2) - 0.04 * (i % 2));
+        p.vertex(px, py);
+      }
+      p.vertex(skyLeft + skyW, skyTop + skyH);
+      p.endShape(p.CLOSE);
 
-    p.fill(79, 107, 71, 225);
-    p.beginShape();
-    p.vertex(skyLeft, skyTop + skyH);
-    p.vertex(skyLeft, skyTop + skyH * 0.62);
-    for (var j = 0; j <= 10; j++) {
-      var tt = j / 10;
-      var qx = skyLeft + skyW * tt;
-      var qy = skyTop + skyH * (0.64 - 0.08 * Math.sin(j * 1.05) - 0.02 * (j % 2));
-      p.vertex(qx, qy);
-    }
-    p.vertex(skyLeft + skyW, skyTop + skyH);
-    p.endShape(p.CLOSE);
+      p.fill(79, 107, 71, 225);
+      p.beginShape();
+      p.vertex(skyLeft, skyTop + skyH);
+      p.vertex(skyLeft, skyTop + skyH * 0.62);
+      for (var j = 0; j <= 10; j++) {
+        var tt = j / 10;
+        var qx = skyLeft + skyW * tt;
+        var qy = skyTop + skyH * (0.64 - 0.08 * Math.sin(j * 1.05) - 0.02 * (j % 2));
+        p.vertex(qx, qy);
+      }
+      p.vertex(skyLeft + skyW, skyTop + skyH);
+      p.endShape(p.CLOSE);
 
-    var buildings = [
-      [0.08, 0.3, 0.08, 0.7, 138],
-      [0.19, 0.18, 0.07, 0.82, 124],
-      [0.29, 0.24, 0.09, 0.76, 133],
-      [0.42, 0.08, 0.12, 0.92, 110],
-      [0.56, 0.12, 0.09, 0.88, 125],
-      [0.67, 0.2, 0.08, 0.8, 141],
-      [0.77, 0.14, 0.1, 0.86, 118],
-      [0.9, 0.28, 0.07, 0.72, 132]
-    ];
-    for (var k = 0; k < buildings.length; k++) {
-      var b = buildings[k];
-      p.fill(b[4], b[4], b[4] - 8, 220);
-      p.rect(skyLeft + skyW * b[0], skyTop + skyH * b[1], skyW * b[2], skyH * b[3]);
+      var buildings = [
+        [0.08, 0.3, 0.08, 0.7, 138],
+        [0.19, 0.18, 0.07, 0.82, 124],
+        [0.29, 0.24, 0.09, 0.76, 133],
+        [0.42, 0.08, 0.12, 0.92, 110],
+        [0.56, 0.12, 0.09, 0.88, 125],
+        [0.67, 0.2, 0.08, 0.8, 141],
+        [0.77, 0.14, 0.1, 0.86, 118],
+        [0.9, 0.28, 0.07, 0.72, 132]
+      ];
+      for (var k = 0; k < buildings.length; k++) {
+        var b = buildings[k];
+        p.fill(b[4], b[4], b[4] - 8, 220);
+        p.rect(skyLeft + skyW * b[0], skyTop + skyH * b[1], skyW * b[2], skyH * b[3]);
+      }
+      p.pop();
     }
-    p.pop();
 
     drawFlowerCluster(p, frameRect.width * 0.1, frameRect.height * 0.13, 1.05, 1);
     drawFlowerCluster(p, frameRect.width * 0.9, frameRect.height * 0.15, 0.95, 1);
