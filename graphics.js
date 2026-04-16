@@ -4,6 +4,7 @@
   var mount = document.getElementById("landing-p5-layer");
   var frame = document.querySelector(".landing__frame");
   var showP5Skyline = false;
+  var showP5Flowers = false;
   if (!mount || !frame) return;
 
   function relRect(childRect, parentRect) {
@@ -96,11 +97,13 @@
       p.pop();
     }
 
-    drawFlowerCluster(p, frameRect.width * 0.1, frameRect.height * 0.13, 1.05, 1);
-    drawFlowerCluster(p, frameRect.width * 0.9, frameRect.height * 0.15, 0.95, 1);
-    drawFlowerCluster(p, frameRect.width * 0.08, frameRect.height * 0.72, 0.9, 0.9);
-    drawFlowerCluster(p, frameRect.width * 0.9, frameRect.height * 0.68, 0.95, 0.95);
-    drawFlowerCluster(p, frameRect.width * 0.93, frameRect.height * 0.43, 0.8, 0.7);
+    if (showP5Flowers) {
+      drawFlowerCluster(p, frameRect.width * 0.1, frameRect.height * 0.13, 1.05, 1);
+      drawFlowerCluster(p, frameRect.width * 0.9, frameRect.height * 0.15, 0.95, 1);
+      drawFlowerCluster(p, frameRect.width * 0.08, frameRect.height * 0.72, 0.9, 0.9);
+      drawFlowerCluster(p, frameRect.width * 0.9, frameRect.height * 0.68, 0.95, 0.95);
+      drawFlowerCluster(p, frameRect.width * 0.93, frameRect.height * 0.43, 0.8, 0.7);
+    }
 
   }
 

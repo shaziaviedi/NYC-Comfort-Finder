@@ -4,6 +4,7 @@
   --paper-base: #e4dcc8;
   --paper-cream: #f5f0e4;
   --paper-oval: #faf6ee;
+  --paper-panel-width: 26rem;
   --ink: #3a2110;
   --ink-soft: #473832;
   --sage: #6d8a5c;
@@ -87,8 +88,8 @@ body {
 .landing__frame {
   position: relative;
   z-index: 2;
-  width: min(100%, 22rem);
-  max-width: 22rem;
+  width: min(100%, var(--paper-panel-width));
+  max-width: var(--paper-panel-width);
   min-height: min(92vh, 45rem);
   max-height: min(90vh, 42rem);
   margin: 0 auto;
@@ -157,8 +158,8 @@ body {
 .landing__skyline {
   position: absolute;
   left: 50%;
-  top: 0.5rem;
-  width: min(108%, 23.25rem);
+  top: 0.15rem;
+  width: min(150%, 25rem);
   transform: translateX(-50%);
   z-index: 1;
   pointer-events: none;
@@ -178,27 +179,37 @@ body {
   pointer-events: none;
 }
 
+.landing__decor--flower3 {
+  bottom: -1.25rem;
+  left: -0.5rem;
+  width: 9rem;
+  aspect-ratio: 1 / 1;
+  transform: rotate(-35deg);
+  background: url("assets/images/graphic-flower3.png") center / contain no-repeat;
+  z-index: 0;
+}
+
+.landing__decor--flower-left {
+  top: -0.5rem;
+  left: -1rem;
+  width: 12rem;
+  aspect-ratio: 1 / 1;
+  transform: rotate(-55deg);
+  background: url("assets/images/graphic-flower1.png") center / contain no-repeat;
+  z-index: 0;
+}
+
+.landing__decor--flower-right {
+  top: 0.5rem;
+  right: -2rem;
+  width: 10rem;
+  aspect-ratio: 1 / 1;
+  transform: rotate(5deg);
+  background: url("assets/images/graphic-flower2.png") center / contain no-repeat;
+  z-index: 0;
+}
+
 .landing__decor--map {
-  bottom: 0.35rem;
-  left: 0.15rem;
-  width: 4.75rem;
-  height: 3.85rem;
-  transform: rotate(-7deg);
-  background: linear-gradient(145deg, #d8c8a8 0%, #c4b090 100%);
-  border: 1px solid rgba(90, 78, 62, 0.35);
-  box-shadow: var(--shadow-paper);
-  clip-path: polygon(0 0, 100% 8%, 92% 100%, 0 88%);
-}
-
-.landing__decor--map::after {
-  content: "";
-  position: absolute;
-  inset: 0.35rem;
-  border: 1px dashed rgba(90, 78, 62, 0.25);
-  opacity: 0.7;
-}
-
-.landing__decor--tape-stars {
   bottom: -10.25rem;
   right: -7rem;
   width: 25rem;
@@ -206,6 +217,7 @@ body {
   transform: rotate(-4deg);
   background: url("assets/images/graphic-map.png") center / contain no-repeat;
   opacity: 0.96;
+  z-index: 1;
 }
 
 .landing__collage {
@@ -527,7 +539,8 @@ body {
 .quiz__wrap {
   position: relative;
   z-index: 2;
-  max-width: 22rem;
+  width: min(100%, var(--paper-panel-width));
+  max-width: var(--paper-panel-width);
   min-height: min(88vh, 44rem);
   margin: 0 auto;
   padding: clamp(0.8rem, 2.7vw, 1.15rem) clamp(0.65rem, 2.2vw, 1rem)
@@ -1073,7 +1086,8 @@ body {
 .result__wrap {
   position: relative;
   z-index: 2;
-  max-width: 22rem;
+  width: min(100%, var(--paper-panel-width));
+  max-width: var(--paper-panel-width);
   margin: 0 auto;
 }
 
