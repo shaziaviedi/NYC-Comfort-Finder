@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Comfort Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Landing: scrapbook hero (quiz + result added in later steps) -->
+    <section
+      id="screen-landing"
+      class="screen screen--landing"
+      aria-label="Welcome"
+    >
+      <div class="paper paper--base" aria-hidden="true"></div>
+
+      <div class="landing__frame">
+        <div class="landing__decor landing__decor--map" aria-hidden="true"></div>
+        <div class="landing__decor landing__decor--tape-stars" aria-hidden="true"></div>
+
+        <div class="landing__floral landing__floral--tl" aria-hidden="true">
+          <svg viewBox="0 0 130 90" width="130" height="90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 62c10-20 28-36 48-44" stroke="#5c6b4e" stroke-width="1.1" stroke-linecap="round"/>
+            <ellipse cx="62" cy="22" rx="11" ry="7" fill="#c4a574" opacity=".82" transform="rotate(-12 62 22)"/>
+            <circle cx="40" cy="48" r="6" fill="#8b9a7a" opacity=".88"/>
+            <circle cx="78" cy="42" r="5" fill="#a67c52" opacity=".82"/>
+            <path d="M92 58c8 3 16-1 18-10" stroke="#7d6b55" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--tr" aria-hidden="true">
+          <svg viewBox="0 0 110 85" width="110" height="85" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 58c14-16 32-24 52-22" stroke="#6b7d5c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="78" cy="28" r="7" fill="#d4c4a8" opacity=".88"/>
+            <ellipse cx="36" cy="36" rx="8" ry="5" fill="#9aab8a" opacity=".85" transform="rotate(18 36 36)"/>
+            <circle cx="58" cy="52" r="4" fill="#b8a090" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--bl" aria-hidden="true">
+          <svg viewBox="0 0 100 75" width="100" height="75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 48c12-10 26-14 40-10" stroke="#7d6b55" stroke-width="0.9" stroke-linecap="round"/>
+            <ellipse cx="28" cy="32" rx="9" ry="5" fill="#c4a574" opacity=".78" transform="rotate(-8 28 32)"/>
+            <circle cx="62" cy="38" r="5" fill="#8b9a7a" opacity=".85"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--br" aria-hidden="true">
+          <svg viewBox="0 0 115 80" width="115" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 52c12-8 28-10 42-4" stroke="#6b7d5c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="82" cy="30" r="7" fill="#d4c4a8" opacity=".9"/>
+            <ellipse cx="28" cy="36" rx="7" ry="4" fill="#9aab8a" opacity=".85" transform="rotate(22 28 36)"/>
+            <path d="M48 58c6 4 14 4 20 0" stroke="#5c6b4e" stroke-width="0.9" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--edge" aria-hidden="true">
+          <svg viewBox="0 0 90 100" width="72" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M45 8v75" stroke="#8b9a7a" stroke-width="1" stroke-dasharray="2 3" opacity=".45"/>
+            <circle cx="45" cy="22" r="5" fill="#a67c52" opacity=".55"/>
+            <circle cx="38" cy="44" r="4" fill="#8b9a7a" opacity=".5"/>
+            <circle cx="52" cy="60" r="4" fill="#c4a574" opacity=".55"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--tc" aria-hidden="true">
+          <svg viewBox="0 0 100 55" width="88" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 42c-8-12-6-28 4-38" stroke="#6b7d5c" stroke-width="0.9" stroke-linecap="round" opacity=".85"/>
+            <circle cx="56" cy="14" r="5" fill="#9aab8a" opacity=".82"/>
+            <ellipse cx="38" cy="22" rx="7" ry="4" fill="#c4a574" opacity=".75" transform="rotate(-8 38 22)"/>
+          </svg>
+        </div>
+        <div class="landing__floral landing__floral--ml" aria-hidden="true">
+          <svg viewBox="0 0 70 95" width="56" height="76" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 8v72" stroke="#7d6b55" stroke-width="0.85" opacity=".35"/>
+            <circle cx="35" cy="28" r="4" fill="#8b9a7a" opacity=".65"/>
+            <circle cx="28" cy="52" r="3.5" fill="#d4c4a8" opacity=".6"/>
+          </svg>
+        </div>
+
+        <div class="landing__collage">
+          <div class="hero-oval-stack">
+            <div class="hero-oval__skyline" aria-hidden="true">
+              <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" role="img">
+                <title>Stylized skyline</title>
+                <path d="M0 128 L0 52 Q20 26 42 52 Q64 22 86 50 Q108 28 130 54 Q152 34 174 58 Q196 40 218 62 Q240 44 262 66 Q284 52 306 72 Q314 66 320 74 L320 128 Z" fill="#6d8a5c" opacity=".94"/>
+                <path d="M0 128 L0 60 Q30 40 60 60 Q90 48 120 64 Q150 54 180 68 Q210 60 240 72 Q270 66 300 76 Q312 72 320 78 L320 128 Z" fill="#4f6b47" opacity=".91"/>
+                <rect x="28" y="38" width="26" height="90" fill="#8a8a82"/>
+                <rect x="62" y="18" width="22" height="110" fill="#7a7a72"/>
+                <rect x="90" y="30" width="30" height="98" fill="#85857d"/>
+                <rect x="130" y="4" width="44" height="124" fill="#6f7f78"/>
+                <rect x="136" y="12" width="8" height="8" fill="#c9d4e0" opacity=".4"/>
+                <rect x="160" y="12" width="8" height="8" fill="#c9d4e0" opacity=".4"/>
+                <rect x="184" y="16" width="28" height="112" fill="#7d827c"/>
+                <rect x="220" y="26" width="24" height="102" fill="#8b8b84"/>
+                <rect x="252" y="14" width="36" height="114" fill="#767c76"/>
+                <rect x="296" y="34" width="22" height="94" fill="#82827a"/>
+                <rect x="138" y="0" width="24" height="16" fill="#6f7f78"/>
+                <polygon points="150,0 162,0 156,-6" fill="#6f7f78"/>
+              </svg>
+            </div>
+
+            <div class="hero-oval">
+            <svg
+              class="hero-oval__stitches"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <ellipse
+                cx="50"
+                cy="50"
+                rx="46.5"
+                ry="47"
+                fill="none"
+                stroke="rgba(90, 78, 62, 0.2)"
+                stroke-width="0.55"
+                stroke-dasharray="2.2 4"
+                stroke-linecap="round"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
+
+            <span class="hero-oval__tape hero-oval__tape--tl" aria-hidden="true"></span>
+            <span class="hero-oval__tape hero-oval__tape--tr" aria-hidden="true"></span>
+            <span class="hero-oval__tape hero-oval__tape--bl" aria-hidden="true"></span>
+            <span class="hero-oval__tape hero-oval__tape--br" aria-hidden="true"></span>
+
+            <div class="hero-oval__inner">
+              <h1 class="hero-oval__title">
+                <span class="hero-oval__title-line">NYC</span>
+                <span class="hero-oval__title-line">Comfort Finder</span>
+              </h1>
+              <div class="hero-oval__rule" aria-hidden="true"></div>
+              <p class="hero-oval__tagline">Discover Your Inner Comfort in the City</p>
+
+              <div class="leaf-cta">
+                <svg
+                  class="leaf-cta__leaf"
+                  viewBox="0 0 320 150"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M160 6 C 72 6 22 52 22 92 C 22 118 58 132 100 128 C 128 124 148 108 160 96 C 172 108 192 124 220 128 C 262 132 298 118 298 92 C 298 52 248 6 160 6 Z"
+                    fill="#7d5c3e"
+                  />
+                  <path
+                    d="M160 96 Q 130 112 100 128 M160 96 Q 190 112 220 128"
+                    stroke="#5c4330"
+                    stroke-width="1.4"
+                    fill="none"
+                    stroke-linecap="round"
+                    opacity="0.55"
+                  />
+                </svg>
+                <button type="button" id="btn-start-quiz" class="btn btn--start">
+                  Start Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="screen-quiz"
+      class="screen screen--quiz"
+      hidden
+      aria-hidden="true"
+    >
+      <div class="paper paper--base" aria-hidden="true"></div>
+
+      <div class="quiz__wrap">
+        <div id="quiz-panel-active" class="quiz-panel quiz-panel--active">
+          <header class="quiz-head">
+            <button
+              type="button"
+              id="quiz-btn-back"
+              class="btn btn--quiz-back"
+            >
+              ← Back
+            </button>
+            <div class="quiz-progress-row">
+              <div class="quiz-compass" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="20" fill="#d4c4a8" stroke="#6b5b48" stroke-width="1.5"/>
+                  <circle cx="24" cy="24" r="16" fill="#e8dcc8" stroke="#8a7a68" stroke-width="1"/>
+                  <path d="M24 10 L26 22 L24 24 L22 22 Z" fill="#5c4a3a"/>
+                  <circle cx="24" cy="24" r="2.5" fill="#3a3630"/>
+                  <text x="24" y="13" text-anchor="middle" font-size="6" fill="#5c4a3a" font-family="Georgia,serif">N</text>
+                </svg>
+              </div>
+              <p class="quiz-progress-strip" id="quiz-progress-label">
+                <span class="quiz-progress-strip__inner">Question 1 of 8</span>
+              </p>
+              <div class="quiz-head-flowers" aria-hidden="true">
+                <svg viewBox="0 0 72 56" width="72" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 44c10-12 24-18 38-16" stroke="#7d6b55" stroke-width="1" stroke-linecap="round"/>
+                  <circle cx="52" cy="18" r="7" fill="#c4a574" opacity=".85"/>
+                  <circle cx="28" cy="28" r="5" fill="#9aab8a" opacity=".9"/>
+                  <ellipse cx="44" cy="36" rx="6" ry="4" fill="#b8a090" opacity=".8" transform="rotate(-12 44 36)"/>
+                </svg>
+              </div>
+            </div>
+          </header>
+
+          <div class="quiz-question-wrap">
+            <div class="quiz-tape quiz-tape--teal quiz-tape--q-left" aria-hidden="true"></div>
+            <div class="quiz-tape quiz-tape--teal quiz-tape--q-right" aria-hidden="true"></div>
+            <div class="quiz-question-card">
+              <p class="quiz-question-text" id="quiz-question-text"></p>
+            </div>
+          </div>
+
+          <div
+            class="quiz-answers"
+            id="quiz-answers"
+            role="group"
+            aria-labelledby="quiz-progress-label"
+          ></div>
+
+          <div class="quiz-polaroid" aria-hidden="true">
+            <div class="quiz-polaroid__frame">
+              <div class="quiz-polaroid__scene"></div>
+            </div>
+            <div class="quiz-polaroid__pin" aria-hidden="true"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      id="screen-result"
+      class="screen screen--result"
+      hidden
+      aria-hidden="true"
+      aria-label="Your comfort type"
+    >
+      <div class="paper paper--base" aria-hidden="true"></div>
+
+      <div class="result__wrap">
+        <div id="result-capture" class="result-capture">
+          <div class="result-notebook">
+            <div class="result-notebook__pin" aria-hidden="true"></div>
+
+            <div class="result-header-strip">
+              <span class="result-header-strip__check" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="11" fill="#6d8a5c" opacity="0.25"/>
+                  <path d="M7 12.5l3 3 7-7" stroke="#4f6b47" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <h2 class="result-header-strip__title" id="result-title">
+                Comfort Type: …
+              </h2>
+            </div>
+
+            <p class="result-description" id="result-description"></p>
+
+            <p class="result-lead" id="result-lead">Here are a few ideas:</p>
+
+            <ol class="result-suggestions" id="result-suggestions"></ol>
+          </div>
+
+          <footer class="result-footer">
+            <button type="button" id="btn-retake" class="btn btn--retake">
+              Retake Quiz
+            </button>
+            <div class="result-save">
+              <div class="result-save__ribbon" aria-hidden="true"></div>
+              <div class="result-save__tape" aria-hidden="true"></div>
+              <button type="button" id="btn-save-result" class="btn btn--save-result">
+                Save Results
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="script.js"></script>
+</body>
+</html>
