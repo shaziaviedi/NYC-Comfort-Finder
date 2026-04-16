@@ -517,12 +517,7 @@ body {
 }
 
 .btn--start::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: 0.32rem;
-  border: 1px dashed rgba(255, 255, 255, 0.38);
-  pointer-events: none;
+  content: none;
 }
 
 .btn--start:hover {
@@ -752,8 +747,23 @@ body {
 
 .quiz-tape--q-left {
   top: -0.08rem;
-  left: -0.72rem;
-  transform: rotate(-45deg);
+  left: -0.86rem;
+  transform: rotate(-51deg);
+}
+
+.quiz__wrap.quiz--q2::before,
+.quiz__wrap.quiz--q3::before,
+.quiz__wrap.quiz--q5::before,
+.quiz__wrap.quiz--q6::before,
+.quiz__wrap.quiz--q7::before,
+.quiz__wrap.quiz--q8::before,
+.quiz__wrap.quiz--q2::after,
+.quiz__wrap.quiz--q3::after,
+.quiz__wrap.quiz--q5::after,
+.quiz__wrap.quiz--q6::after,
+.quiz__wrap.quiz--q7::after,
+.quiz__wrap.quiz--q8::after {
+  inset: 0 0 -0.5rem 0;
 }
 
 .quiz-tape--q-right {
@@ -1316,7 +1326,7 @@ body {
   border: 1px solid rgba(40, 32, 26, 0.5);
   border-radius: 0.35rem 0.35rem 0.15rem 0.35rem;
   box-shadow: 0 3px 0 rgba(40, 32, 26, 0.35), 0 6px 12px rgba(58, 54, 48, 0.12);
-  transform: translateY(-0.22rem) rotate(-2deg);
+  transform: translateY(-0.14rem) rotate(-2deg);
 }
 
 .btn--retake::before {
