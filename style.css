@@ -980,30 +980,30 @@ body {
 .quiz-polaroid {
   position: absolute;
   right: clamp(0.05rem, 0.8vw, 0.25rem);
-  bottom: clamp(2.6rem, 8.5vw, 3.8rem);
+  bottom: clamp(2rem, 6.9vw, 3.2rem);
   z-index: 0;
   pointer-events: none;
   transform: rotate(5deg);
 }
 
 .quiz__wrap.quiz--polaroid-lower .quiz-polaroid {
-  bottom: clamp(1.15rem, 4.8vw, 2.2rem);
+  bottom: clamp(0.55rem, 3.2vw, 1.35rem);
 }
 
 .quiz__wrap.quiz--polaroid-higher .quiz-polaroid {
-  bottom: clamp(3.85rem, 11.8vw, 5rem);
+  bottom: clamp(3.25rem, 10.3vw, 4.35rem);
 }
 
 .quiz-polaroid__frame {
-  width: 10.25rem;
-  padding: 0.55rem 0.55rem 2.18rem;
+  width: 9.85rem;
+  padding: 0.58rem 0.52rem 2.7rem;
   background: #faf8f4;
   border: 1px solid rgba(90, 78, 62, 0.2);
   box-shadow: var(--shadow-paper);
 }
 
 .quiz-polaroid__scene {
-  height: 6.95rem;
+  height: 8.05rem;
   background: linear-gradient(180deg, #dbeaec 0%, #d6e7ec 45%, #babb78 100%);
   border-radius: 2px;
   position: relative;
