@@ -164,7 +164,7 @@ body {
   left: 50%;
   top: 0.15rem;
   width: min(150%, 25rem);
-  transform: translateX(-50%) translateY(1.8rem);
+  transform: translateX(-50%) translateY(1.8rem) scale(1.05);
   z-index: 1;
   pointer-events: none;
 }
@@ -236,7 +236,8 @@ body {
   flex: 0 1 auto;
   min-height: 0;
   padding: 0.2rem 0 0.15rem;
-  transform: translateY(1.8rem);
+  transform: translateY(1.8rem) scale(1.05);
+  transform-origin: center top;
 }
 
 /* Stack: skyline layer behind, oval foreground (collage) */
