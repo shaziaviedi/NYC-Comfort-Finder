@@ -155,6 +155,29 @@
   /** @type {string[]} */
   let answers = [];
 
+  function shuffledIndices(length) {
+    const indices = Array.from({ length: length }, function (_, i) {
+      return i;
+    });
+    for (let i = indices.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = indices[i];
+      indices[i] = indices[j];
+      indices[j] = tmp;
+    }
+    return indices;
+  }
+
+  // Keep Q1 answer order unchanged, but mix Q2+ in a stable order per session.
+  const answerOrderByQuestion = questions.map(function (q, qIndex) {
+    if (qIndex === 0) {
+      return Array.from({ length: q.answers.length }, function (_, i) {
+        return i;
+      });
+    }
+    return shuffledIndices(q.answers.length);
+  });
+
   function showScreen(name) {
     const isLanding = name === "landing";
     const isQuiz = name === "quiz";
@@ -249,7 +272,9 @@
     elAnswers.innerHTML = "";
     elAnswers.setAttribute("aria-label", "Answers for question " + (currentIndex + 1));
 
-    q.answers.forEach(function (ans, i) {
+    const answerOrder = answerOrderByQuestion[currentIndex];
+    answerOrder.forEach(function (answerIndex, i) {
+      const ans = q.answers[answerIndex];
       const cell = document.createElement("div");
       cell.className = "quiz-answer-cell";
       if (i === 2) cell.classList.add("quiz-answer-cell--2");
